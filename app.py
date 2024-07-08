@@ -11,7 +11,7 @@ app = Flask(__name__)
 # Load the model
 model = load_model('C:\Users\adamg\Desktop\AI AND DATASET\tugas besar\facial disease\facial_disease_model.h5')
 
-class_names = ['Acne', 'Eksim', 'Herpes', 'Panu', 'Rosacea']
+class_names = [0, 1, 2, 3, 4]
 
 def prepare_image(image, target):
     image = image.resize(target)
@@ -24,17 +24,16 @@ def index():
     if request.method == 'POST':
         file = request.files['file']
         if file:
-            # Read the image file and convert it to jpg
-            image = Image.open(io.BytesIO(file.read()))
-            # Prepare the image
-            image = prepare_image(image, target=(224, 224))
-            # Resample the image
-            image = np.array(image) / 255.0
-            # Make prediction
-            preds = model.predict(image)
-            # Get the class with the highest probability
+            # Read the image file and convert it to PIL Image
+            img = Image.open(io.BytesIO(file.read()))
+            # Process the image
+            img = prepare_image(img, target=(244, 244))
+            img = np.array(img) / 255.0
+            # Predict the class
+            preds = model.predict(img)
+            # Get the class with highest probability
             prediction_label = class_names[np.argmax(preds)]
-            return render_template('index.html', preds=prediction_label)
+            return render_template('result.html', prediction=prediction_label)
     return render_template('index.html')
 
 if __name__ == '__main__':
