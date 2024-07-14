@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Facial Disease Prediction - Result</title>
+</head>
+<body style="background-color: gray;">
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+          </div>
+        </div>
+      </header>
+    <div class="container">
+        <h1 class="text-center mt-5">Facial Disease Prediction</h1>
+    </div>
+    <!-- Make an Container for Showing Result of Predicition -->
+    <div class="container-xl mt-5 col-11" style="width: 100cm; background-color: white; height: auto;">
+        <div class="card-body">
+            <h2 class="card-title text-center">RESULT</h2>
+            <!-- Show Image of Uploaded file here -->
+            <img src="{{ image }}" class="card-img-top" alt="Uploaded Image" style="width: 30%; margin-left: 25%;">
+            <br>
+            <p class="card-text">The result of the prediction is:
+                {% if result == 0 %}
+                <strong>Acne (Jerawat)</strong>
+            {% elif result == 1 %}
+                <strong>Eczema</strong>
+            {% elif result == 2 %}
+                <strong>Herpes</strong>
+            {% elif result == 3 %}
+                <strong>Panu</strong>
+            {% elif result == 4 %}
+                <strong>Rosacea</strong>
+            {% endif %}
+            </p>
+            <p class="card-text">Model Accuracy: <strong>{{ accuracy }}</strong></p>
+            <h2 class="card-title text-center">Symptom of your disease?</h2>
+            {% if result == 0 %}
+                <p class="card-text">Acne is a skin condition that occurs when your hair follicles become plugged with oil and dead skin cells. It causes whiteheads, blackheads or pimples. Acne is most common among teenagers, though it affects people of all ages.</p>
+            {% elif result == 1 %}
+                <p class="card-text">Eczema is a condition where patches of skin become inflamed, itchy, red, cracked, and rough. Blisters may sometimes occur. Different stages and types of eczema affect 31.6 percent of people in the United States.</p>
+            {% elif result == 2 %}
+                <p class="card-text">Herpes is a viral infection caused by the herpes simplex virus. Infections are categorized based on the part of the body infected. Oral herpes involves the face or mouth. It may result in small blisters in groups often called cold sores or fever blisters or may just cause a sore throat.</p>
+            {% elif result == 3 %}
+                <p class="card-text">Panu, sometimes called tinea versicolor, is a common fungal infection that causes small patches of skin to become scaly and discolored. The discolored patches may be lighter or darker than your skin and can be red, pink, tan, or brown.</p>
+            {% elif result == 4 %}
+                <p class="card-text">Rosacea is a common skin condition that causes redness and visible blood vessels in your face. It may also produce small, red, pus-filled bumps. These signs and symptoms may flare up for weeks to months and then go away for a while. Rosacea can be mistaken for acne, other skin problems or natural ruddiness.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="alert alert-danger mt-5" role="alert">
+            This project is for educational purposes only
+          </div>
+    <!-- Import Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
