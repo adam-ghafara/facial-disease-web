@@ -31,7 +31,7 @@
                 {% if result == 0 %}
                 <strong>Acne (Jerawat)</strong>
             {% elif result == 1 %}
-                <strong>Eczema</strong>
+                <strong>Eksim (Eczema)</strong>
             {% elif result == 2 %}
                 <strong>Herpes</strong>
             {% elif result == 3 %}
@@ -43,17 +43,38 @@
             <p class="card-text">Model Accuracy: <strong>{{ accuracy }}</strong></p>
             <h2 class="card-title text-center">Symptom of your disease?</h2>
             {% if result == 0 %}
-                <p class="card-text">Acne is a skin condition that occurs when your hair follicles become plugged with oil and dead skin cells. It causes whiteheads, blackheads or pimples. Acne is most common among teenagers, though it affects people of all ages.</p>
+                <p class="card-text">Jerawat atau acne adalah masalah kulit yang muncul akibat pori-pori tersumbat oleh minyak dan sel kulit mati. Jerawat terjadi akibat folikel rambut yang mengalami penyumbatan. Minyak, kotoran, dan sel-sel kulit mati di permukaan kulit dapat menyumbat pori-pori dan memicu munculnya jerawat.
+                </p>
+                <p>Gejala Jerawat dapat berupa :</p>
+                <ul>
+                    <li>Benjolan kecil berwarna merah</li>
+                    <li>Jerawat berisi nanah</li>
+                </ul>
             {% elif result == 1 %}
-                <p class="card-text">Eczema is a condition where patches of skin become inflamed, itchy, red, cracked, and rough. Blisters may sometimes occur. Different stages and types of eczema affect 31.6 percent of people in the United States.</p>
+                <p class="card-text">Eksim (eczema) adalah kondisi kulit kronis yang ditandai oleh peradangan, kemerahan, kulit kering, gatal, dan seringkali pembengkakan. Ini adalah salah satu jenis dermatitis, yang mengacu pada peradangan kulit. Eksim adalah masalah kulit yang umum terjadi, terutama pada anak-anak, tetapi juga dapat memengaruhi orang dewasa.</p>
+                <p>Gejala Eksim dapat berupa :</p>
+                <ul>
+                    <li>Kulit kering</li>
+                    <li>Kemerahan</li>
+                    <li>Gatal</li>
+                    <li>Pembengkakan</li>
+                </ul>
+
             {% elif result == 2 %}
-                <p class="card-text">Herpes is a viral infection caused by the herpes simplex virus. Infections are categorized based on the part of the body infected. Oral herpes involves the face or mouth. It may result in small blisters in groups often called cold sores or fever blisters or may just cause a sore throat.</p>
+                <p class="card-text">Herpes adalah penyakit yang ditandai dengan munculnya lepuhan berwarna kemerahan dan berisi cairan pada kulit. Penyebab penyakit herpes adalah virus. Penyakit ini tergolong sebagai penyakit jangka panjang, karena virusnya bisa bertahan seumur hidup di dalam tubuh seseorang.</p>
+                <p>Gejala Herpes dapat berupa :</p>
+                <ul>
+                    <li>Lepuhan berwarna kemerahan</li>
+                    <li>Lepuhan berisi cairan</li>
+                </ul>
             {% elif result == 3 %}
-                <p class="card-text">Panu, sometimes called tinea versicolor, is a common fungal infection that causes small patches of skin to become scaly and discolored. The discolored patches may be lighter or darker than your skin and can be red, pink, tan, or brown.</p>
+                <p class="card-text">Panu adalah infeksi kulit yang disebabkan oleh jamur. Jamur penyebab panu sebenarnya adalah salah satu jamur yang memang normal hidup di kulit, yaitu jamur Malassezia. Namun, ketika jamur ini berkembang secara berlebih, terjadilah perubahan warna pada kulit yang merupakan ciri utama panu.</p>
             {% elif result == 4 %}
-                <p class="card-text">Rosacea is a common skin condition that causes redness and visible blood vessels in your face. It may also produce small, red, pus-filled bumps. These signs and symptoms may flare up for weeks to months and then go away for a while. Rosacea can be mistaken for acne, other skin problems or natural ruddiness.</p>
+                <p class="card-text">Rosacea adalah penyakit kulit wajah yang ditandai dengan kulit kemerahan disertai bintik-bintik menyerupai jerawat. Kondisi ini juga dapat menyebabkan kulit wajah menebal dan pembuluh darah di wajah membengkak.</p>
             {% endif %}
         </div>
+        <div class="card-footer text-center">
+            <a href="/index" class="btn btn-primary">Return to Main Page</a>
     </div>
     <div class="container">
         <div class="alert alert-danger mt-5" role="alert">
