@@ -24,6 +24,11 @@ def index():
     # Landing Page
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    # About Page
+    return render_template('about.html')
+
 @app.route('/disease_detector', methods=['GET', 'POST'])
 def disease_detector():
     if request.method == 'POST':
