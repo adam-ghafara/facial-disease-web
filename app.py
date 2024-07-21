@@ -19,10 +19,15 @@ def prepare_image(image, target):
     image = np.expand_dims(image, axis=0)
     return image
 
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    # Landing Page
+    return render_template('index.html')
+
+@app.route('/disease_detector', methods=['GET', 'POST'])
+def disease_detector():
     if request.method == 'POST':
-        file = request.files['file']
+        file = request.files['image']  # Change 'file' to 'image'
         if file:
             # Read the image file and convert it to PIL Image
             img = Image.open(file)
@@ -40,8 +45,8 @@ def index():
             image_data = image_data.getvalue()
             image_data = "data:image/png;base64," + base64.b64encode(image_data).decode('utf-8')
             model_accuracy = np.max(preds) * 100
-            return render_template('result.html', result=prediction_label, image=image_data, accuracy=model_accuracy)
-    return render_template('index.html')
+            return render_template('disease_result.html', result=prediction_label, image=image_data, accuracy=model_accuracy)
+    return render_template('disease_detector.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Facial Disease Prediction</title>
+</head>
+<body style="background-color: gray;">
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+          </div>
+        </div>
+      </header>
+    <div class="container">
+        <h1 class="text-center mt-5">Facial Disease Prediction</h1>
+    </div>
+    <!-- Make an card for input the image -->
+    <div class="container-xl mt-5">
+        <div class="card">
+            <div class="card-header">
+                Please Upload Your Image Here For Prediction
+            </div>
+            <div class="card-body">
+              <form method="POST" action="{{ url_for('index') }}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image">Choose Image</label>
+                    <input type="file" class="form-control-file" id="image" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+    <div class="container">
+        <div class="alert alert-danger mt-5" role="alert">
+            This project is for educational purposes only
+          </div>
+    <!-- Import Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Doctor Face - Cek Kesehatan Wajahmu</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" /> -->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="../static/css/styles.css" rel="stylesheet" /> -->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="/">Doctor Face</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/disease_detector">Cek Kesehatan Wajah</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Card -->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Hasil Diagnosis</h2>
+                            <p class="lead fw-normal text-muted">Berikut adalah hasil diagnosis kesehatan wajah Anda.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card rounded-3 border-0 shadow">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    {% if result == 0 %}
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0 text-center" style="font-size: 5vb;">JERAWAT (ACNE)</h5>
+                                    </div>
+                                {% elif result == 1 %}
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0 text-center" style="font-size: 5vb;">EKSIM</h5>
+                                    </div>
+                                {% elif result == 2 %}
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0 text-center" style="font-size: 5vb;">HERPES</h5>
+                                    </div>
+                                {% elif result == 3 %}
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0 text-center" style="font-size: 5vb;">PANU</h5>
+                                    </div>
+                                {% elif result == 4 %}
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0 text-center" style="font-size: 5vb;">ROSACEA</h5>
+                                    </div>
+                                {% endif %}
+                                </div>
+                                <!-- Image is on the side of the card -->
+                                <img src="{{ image }}" class="card-img-top" alt="Uploaded Image" style="width: 100%;">
+                                <br>
+                                <p class="card-text text-center">Model Accuracy: <strong>{{ accuracy }}</strong></p>
+                                <h2 class="card-title
+                                text-center">Gejala Penyakit</h2>
+                                {% if result == 0 %}
+                                    <p class="card-text">Jerawat atau acne adalah masalah kulit yang muncul akibat pori-pori tersumbat oleh minyak dan sel kulit mati. Jerawat terjadi akibat folikel rambut yang mengalami penyumbatan. Minyak, kotoran, dan sel-sel kulit mati di permukaan kulit dapat menyumbat pori-pori dan memicu munculnya jerawat.</p>
+                                    <p>Gejala Jerawat dapat berupa :</p>
+                                    <ul>
+                                        <li>Benjolan kecil berwarna merah</li>
+                                        <li>Jerawat berisi nanah</li>
+                                    </ul>
+                                {% elif result == 1 %}
+                                    <p class="card-text">Eksim (eczema) adalah kondisi kulit kronis yang ditandai oleh peradangan, kemerahan, kulit kering, gatal, dan seringkali pembengkakan. Ini adalah salah satu jenis dermatitis, yang mengacu pada peradangan kulit. Eksim adalah masalah kulit yang umum terjadi, terutama pada anak-anak, tetapi juga dapat memengaruhi orang dewasa.</p>
+                                    <p>Gejala Eksim dapat berupa :</p>
+                                    <ul>
+                                        <li>Kulit kering</li>
+                                        <li>Kemerahan</li>
+                                        <li>Gatal</li>
+                                        <li>Pembengkakan</li>
+                                    </ul>
+                                {% elif result == 2 %}
+                                    <p class="card-text">Herpes adalah penyakit yang disebabkan oleh virus herpes simpleks tipe 1 (HSV-1). Herpes merupakan penyakit yang umum dan dapat menyerang berbagai kalangan usia, terutama pada anak-anak. Penyebab dari herpes di wajah adalah virus dan kontak langsung dengan penderita herpes.</p>
+                                    <p>Gejala Herpes dapat berupa :</p>
+                                    <ul>
+                                        <li>Lepuhan berwarna kemerahan</li>
+                                        <li>Lepuhan berisi cairan</li>
+                                    </ul>
+                                {% elif result == 3 %}
+                                    <p class="card-text">Panu adalah infeksi jamur pada kulit yang disebabkan oleh jamur Malassezia. Jamur ini sebenarnya merupakan jamur yang hidup di kulit manusia dan tidak menimbulkan masalah. Namun, jika jamur ini berkembang biak secara berlebihan, maka akan menyebabkan panu.</p>
+                                    <p>Gejala Panu dapat berupa :</p>
+                                    <ul>
+                                        <li>Bercak putih pada kulit</li>
+                                        <li>Kulit gatal</li>
+                                    </ul>
+                                {% elif result == 4 %}
+                                    <p class="card-text">Rosacea adalah penyakit kulit wajah yang ditandai dengan kulit kemerahan disertai bintik-bintik menyerupai jerawat. Kondisi ini juga dapat menyebabkan kulit wajah menebal dan pembuluh darah di wajah membengkak.</p>
+                                    <p>Gejala Rosacea dapat berupa :</p>
+                                    <ul>
+                                        <li>Kemerahan pada wajah</li>
+                                        <li>Pembengkakan</li>
+                                        <li>Pembuluh darah tampak di wajah</li>
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button for Return to Detector Page -->
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card rounded-3 border-0 shadow">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0">Kembali ke Halaman Cek Kesehatan Wajah</h5>
+                                    </div>
+                                </div>
+                                <div class="d-grid mt-lg-n3">
+                                    <a href="/disease_detector" class="btn btn-primary btn-lg">Kembali</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Educational Purpose Only -->
+        <div class="container mb-5">
+            <div class="alert alert-danger mt-5" role="alert">
+                This project is for educational purposes only
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Doctor Face 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <!-- <script src="../static/js/scripts.js"></script> -->
+    </body>
+</html>

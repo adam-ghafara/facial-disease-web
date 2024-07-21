@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Doctor Face - Cek Kesehatan Wajahmu</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" /> -->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="../static/css/styles.css" rel="stylesheet" /> -->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    </head>
+    <body id="page-top" style="height: max-content;">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="/">Doctor Face</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/disease_detector">Cek Kesehatan Wajah</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Card -->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Periksa Wajah Anda</h2>
+                            <p class="lead fw-normal text-muted">Periksakan wajah anda menggunakan AI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card rounded-3 border-0 shadow">
+                            <div class="card-body p-lg-5 py-lg-5">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="flex-grow-1">
+                                        <h5 class="fw-bolder mb-0">Silahkan masukkan foto wajah anda</h5>
+                                    </div>
+                                </div>
+                                <!-- Image Input -->
+                                <form action="{{ url_for('disease_detector') }}" method="post" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+                                    </div>
+                                    <div class="d-grid mt-lg-n3">
+                                        <button class="btn btn-primary btn-lg" type="submit">Periksa</button>
+                                    </div>
+                                </form>
+                                <p class="mt-lg-5"><strong>Tips: </strong>Pastikan gambar terlihat jelas. Direkomendasikan menggunakan gambar dengan resolusi 244x244 pixels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Educational Purpose Only -->
+        <div class="container mb-5">
+            <div class="alert alert-danger mt-5" role="alert">
+                This project is for educational purposes only
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Doctor Face 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <!-- <script src="../static/js/scripts.js"></script> -->
+    </body>
+</html>
